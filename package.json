@@ -1,0 +1,11 @@
+{
+  "name": "@indivice/omega-lang",
+  "version": "1.0.0",
+  "description": "The Language of OmegaUI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayukh Chakraborty",
+  "license": "MIT"
+}
