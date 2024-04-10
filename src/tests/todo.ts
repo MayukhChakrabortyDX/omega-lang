@@ -1,5 +1,5 @@
-import { $loop, $region, Content, Input, Layout } from "../src/components";
-import { State } from "../src/index";
+import { $loop, $region, Content, Input, Layout } from "../components";
+import { State } from "../index";
 
 function Todo() {
 
