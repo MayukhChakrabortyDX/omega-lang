@@ -20,6 +20,7 @@ export enum NativeComponentIndex {
         View,
 
         //inputs
+        Link,
         Button,
         TextInput,
         TextAreaInput,
@@ -111,6 +112,18 @@ export type InputAttributes = Partial<{
     type: string | Dynamic<string>,
     value: string | Dynamic<string>
 
+}>
+
+export type LinkAttributes = Partial<{
+    crossorigin: string | Dynamic<string>,
+    href: string | Dynamic<string>,
+    hreflang: string | Dynamic<string>,
+    media: string | Dynamic<string>,
+    referrerpolicy: string | Dynamic<string>,
+    rel: string | Dynamic<string>,
+    sizes: string | Dynamic<string>,
+    title: string | Dynamic<string>,
+    type: string | Dynamic<string>,
 }>
 
 export type ImageAttributes = Partial<{

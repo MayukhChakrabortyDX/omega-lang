@@ -1,6 +1,6 @@
 import { Dynamic, DynamicLoop, OmegaComponent, OmegaProperty, State } from "./index"
 import { DriverUtility } from "./driver"
-import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, ImageAttributes, InputAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
+import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, ImageAttributes, InputAttributes, LinkAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
 
 type defaultPropertyType = OmegaProperty & OmegaEvents<Event>
 
@@ -57,6 +57,12 @@ export const Layout = {
 }
 
 export const Input = {
+
+    Link: (properties: defaultPropertyType & LinkAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.Link, properties)
+
+    },
 
     Button: (prpoerties: defaultPropertyType & InputAttributes) => {
 
