@@ -30,6 +30,8 @@ export enum NativeComponentIndex {
         Checkbox,
         Dropdown,
         DropdownItem,
+        Date,
+        Time,
         DateTime,
         Color,
 
@@ -42,7 +44,10 @@ export enum NativeComponentIndex {
         //media
         Audio,
         Video,
-        Image
+        Image,
+        IFrame,
+        MultiMedia,
+        MediaSource
 
 }
 
@@ -142,6 +147,62 @@ export type VideoAttributes = Partial<{
     poster: string | Dynamic<string>,
     preload: string | Dynamic<string>,
     src: string | Dynamic<string>
+
+}>
+
+export type MultiMediaAttributes = Partial<{
+
+    data: string | Dynamic<string>,
+    form: string | Dynamic<string>,
+    type: string | Dynamic<string>,
+    name: string | Dynamic<string>,
+    typemustmatch: string | Dynamic<string>,
+    usemap: string | Dynamic<string>
+
+}>
+
+export type MediaSourceAttributes = Partial<{
+
+    media: string | Dynamic<string>,
+    sizes: string | Dynamic<string>,
+    src: string | Dynamic<string>,
+    srcset: string | Dynamic<string>,
+    type: string | Dynamic<string>
+
+}>
+
+export type IFrameAttributes = Partial<{
+
+    allow: string | Dynamic<string>,
+    allowfullscreen: string | Dynamic<string>,
+    allowpaymentrequest: string | Dynamic<string>,
+    loading: string | Dynamic<string>,
+    name: string | Dynamic<string>,
+    referrerpolicy: string | Dynamic<string>,
+    sandbox: string | Dynamic<string>,
+    src: string | Dynamic<string>,
+    srcdoc: string | Dynamic<string>
+
+}>
+
+export type DropdownAttributes = Partial<{
+
+    autofocus: string | Dynamic<string>,
+    disabled: string | Dynamic<string>,
+    form: string | Dynamic<string>,
+    multiple: string | Dynamic<string>,
+    name: string | Dynamic<string>,
+    required: string | Dynamic<string>,
+    size: string | Dynamic<string>
+
+}>
+
+export type DropdownItemAttributes = Partial<{
+
+    disabled: string | Dynamic<string>,
+    label: string | Dynamic<string>,
+    selected: string | Dynamic<string>,
+    value: string | Dynamic<string>
 
 }>
 

@@ -1,6 +1,6 @@
 import { Dynamic, DynamicLoop, OmegaComponent, OmegaProperty, State } from "./index"
 import { DriverUtility } from "./driver"
-import { AudioAttributes, ImageAttributes, InputAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
+import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, ImageAttributes, InputAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
 
 type defaultPropertyType = OmegaProperty & OmegaEvents<Event>
 
@@ -106,15 +106,27 @@ export const Input = {
         
     },
 
-    Dropdown: (properties: defaultPropertyType & InputAttributes) => {
+    Dropdown: (properties: defaultPropertyType & DropdownAttributes) => {
 
         return new OmegaComponent(NativeComponentIndex.Dropdown, properties)
 
     },
 
-    DropdownItem: (properties: defaultPropertyType) => {
+    DropdownItem: (properties: defaultPropertyType & DropdownItemAttributes) => {
 
         return new OmegaComponent(NativeComponentIndex.DropdownItem, properties)
+
+    },
+
+    Date: (properties: defaultPropertyType & InputAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.Date, properties)
+
+    },
+
+    Time: (properties: defaultPropertyType & InputAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.Time, properties)
 
     },
 
@@ -184,6 +196,24 @@ export const Media = {
 
         return new OmegaComponent(NativeComponentIndex.Image, properties)
 
-    }
+    },
+
+    IFrame: (properties: defaultPropertyType & ImageAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.IFrame, properties)
+
+    },
+
+    MultiMedia: (properties: defaultPropertyType & ImageAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.MultiMedia, properties)
+
+    },
+
+    MediaSource: (properties: defaultPropertyType & ImageAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.MediaSource, properties)
+
+    },
 
 }
