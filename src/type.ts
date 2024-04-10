@@ -22,6 +22,7 @@ export enum NativeComponentIndex {
         //inputs
         Button,
         TextInput,
+        TextAreaInput,
         NumberInput,
         EmailInput,
         PasswordInput,
@@ -36,6 +37,7 @@ export enum NativeComponentIndex {
         TextBox,
         BreakLine,
         HorizontalRule,
+        Label,
 
         //media
         Audio,

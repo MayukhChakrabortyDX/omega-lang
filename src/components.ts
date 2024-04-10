@@ -70,6 +70,12 @@ export const Input = {
 
     },
 
+    TextArea: (properties: defaultPropertyType & InputAttributes) => {
+
+        return new OmegaComponent(NativeComponentIndex.TextAreaInput, properties)
+
+    },
+
     Numeric: (properties: defaultPropertyType & InputAttributes) => {
 
         return new OmegaComponent(NativeComponentIndex.NumberInput, properties)
@@ -137,6 +143,12 @@ export const Content = {
     TextBox: (properties: defaultPropertyType) => {
 
         return new OmegaComponent(NativeComponentIndex.TextBox, properties)
+
+    },
+
+    Label: (properties: defaultPropertyType) => {
+
+        return new OmegaComponent(NativeComponentIndex.Label, properties)
 
     },
 
