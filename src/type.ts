@@ -37,6 +37,7 @@ export enum NativeComponentIndex {
 
         //content
         TextBox,
+        Icon,
         BreakLine,
         HorizontalRule,
         Label,

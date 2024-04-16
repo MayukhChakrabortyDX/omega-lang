@@ -163,6 +163,12 @@ export const Input = {
 
 export const Content = {
 
+    Icon(properties: defaultPropertyType) {
+
+        return new OmegaComponent(NativeComponentIndex.Icon, properties)
+
+    },
+
     Text: (text: String | string) => {
 
         return new OmegaComponent(NativeComponentIndex.__text__, DriverUtility.createText(text, {}))
