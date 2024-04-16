@@ -9,13 +9,15 @@ import { GlobalAttributes, NativeComponentIndex } from "./type"
  */
 export type OmegaProperty = {
 
+    __driver__?: any,
     children?: OmegaComponent[],
     child?: OmegaComponent,
     style?: {
-        [P in keyof Partial<CSSStyleDeclaration>]: string | Dynamic<string>
-    },
+        [P in keyof Partial<CSSStyleDeclaration>]: String | string | Dynamic<String | string>
+    } | Dynamic<{
+        [P in keyof Partial<CSSStyleDeclaration>]: String | string
+    }>,
     key?: number, //must be unique for tree-diffs.
-    __driver__?: any
 
 } & Partial<GlobalAttributes>
 
@@ -28,7 +30,7 @@ export class OmegaComponent {
      * The constructor will accept all sorts of properties, but it is the responsibility of the
      * components to actually implement certail attributes to only certain elements
      */
-    constructor(name: NativeComponentIndex, properties: OmegaProperty ) {
+    constructor(name: NativeComponentIndex, properties: OmegaProperty) {
 
         this.name = name
         this.properties = properties
@@ -40,7 +42,7 @@ export class OmegaComponent {
 export class State<T> {
 
     value: T
-    updateList:((prev: T, newv: T) => any)[] = []
+    updateList: ((prev: T, newv: T) => any)[] = []
 
     constructor(initial: T) {
 
@@ -49,15 +51,16 @@ export class State<T> {
     }
 
     get(): T {
-    
+
         return this.value
-    
+
     }
 
     set(value: T) {
 
-        this.updateList.forEach(fx => fx(this.value, value))
+        const prev = this.value
         this.value = value
+        this.updateList.forEach(fx => fx(prev, value))
 
     }
 
@@ -65,8 +68,8 @@ export class State<T> {
 
         const value = callback(this.value)
 
-        this.updateList.forEach(fx => fx(this.value, value))
         this.value = value
+        this.updateList.forEach(fx => fx(this.value, value))
 
     }
 
@@ -79,24 +82,6 @@ export class State<T> {
 
 }
 
-export class DynamicLoop<T> extends OmegaComponent {
-
-    dynamic: {
-        callback: () => T[],
-        states: State<any> []
-    }
-
-    constructor( callback: () => T[], ...states: State<any>[] ) {
-
-        super(NativeComponentIndex.__dynamic_loop__, {})
-        this.dynamic = {
-            callback, states
-        }
-
-    }
-
-}
-
 export class Dynamic<T> extends OmegaComponent {
 
     dynamic: {
@@ -104,7 +89,7 @@ export class Dynamic<T> extends OmegaComponent {
         states: State<any>[]
     }
 
-    constructor( callback: () => T, ...states: State<any>[] ) {
+    constructor(callback: () => T, ...states: State<any>[]) {
 
         super(NativeComponentIndex.__dynamic__, {})
         this.dynamic = {

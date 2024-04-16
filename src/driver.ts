@@ -12,19 +12,13 @@ import { OmegaProperty } from "./index"
 
 export type __text__ = {
     //for __text__ tag
-    text: string
-}
-
-export type __fragment__ = {
-    //for __fragment__ tag
-    isFragment: boolean //just a boolean to tell the engine it is indeed
-    //a fragment.
+    text: String | string
 }
 
 //just a helper API that makes the confusing jargon easier.
 export const DriverUtility = {
 
-    createText(text: string, properties: OmegaProperty) {
+    createText(text: String | string, properties: OmegaProperty) {
 
         return {
             ...properties,
@@ -37,17 +31,5 @@ export const DriverUtility = {
         }
 
     },
-
-    createFragment(properties: OmegaProperty) {
-
-        return {
-            ...properties,
-            __driver__: {
-                ...properties.__driver__,
-                isFragment: true
-            }
-        }
-
-    }
 
 }

@@ -8,9 +8,7 @@ export enum NativeComponentIndex {
     //built-ins and must-defined
         __driver__,
         __text__,
-        __fragment__,
         __dynamic__,
-        __dynamic_loop__,
 
     //components
         //layouts
@@ -18,6 +16,7 @@ export enum NativeComponentIndex {
         RowView,
         GridView,
         View,
+        __empty__,
 
         //inputs
         Link,
@@ -54,168 +53,168 @@ export enum NativeComponentIndex {
 
 //for everyone
 export type GlobalAttributes = {
-    accesskey: string | Dynamic<string>,
-    autocapitalize: string | Dynamic<string>,
-    autofocus: string | Dynamic<string>,
-    class: string | Dynamic<string>,
-    contenteditable: string | Dynamic<string>,
-    data$: string | Dynamic<string>,
-    dir: string | Dynamic<string>,
-    draggable: string | Dynamic<string>,
-    enterkeyhint: string | Dynamic<string>,
-    exportparts: string | Dynamic<string>,
-    hidden: string | Dynamic<string>,
-    id: string | Dynamic<string>,
-    inert: string | Dynamic<string>,
-    inputmode: string | Dynamic<string>,
-    is: string | Dynamic<string>,
-    itemid: string | Dynamic<string>,
-    itemprop: string | Dynamic<string>,
-    itemref: string | Dynamic<string>,
-    itemscope: string | Dynamic<string>,
-    itemtype: string | Dynamic<string>,
-    lang: string | Dynamic<string>,
-    nonce: string | Dynamic<string>,
-    part: string | Dynamic<string>,
-    popover: string | Dynamic<string>,
-    role: string | Dynamic<string>,
-    slot: string | Dynamic<string>,
-    spellcheck: string | Dynamic<string>,
-    tabindex: string | Dynamic<string>,
-    title: string | Dynamic<string>,
-    translate: string | Dynamic<string>,
+    accesskey: String | string | Dynamic<String | string>,
+    autocapitalize: String | string | Dynamic<String | string>,
+    autofocus: String | string | Dynamic<String | string>,
+    class: String | string | Dynamic<String | string>,
+    contenteditable: String | string | Dynamic<String | string>,
+    data$: String | string | Dynamic<String | string>,
+    dir: String | string | Dynamic<String | string>,
+    draggable: String | string | Dynamic<String | string>,
+    enterkeyhint: String | string | Dynamic<String | string>,
+    exportparts: String | string | Dynamic<String | string>,
+    hidden: String | string | Dynamic<String | string>,
+    id: String | string | Dynamic<String | string>,
+    inert: String | string | Dynamic<String | string>,
+    inputmode: String | string | Dynamic<String | string>,
+    is: String | string | Dynamic<String | string>,
+    itemid: String | string | Dynamic<String | string>,
+    itemprop: String | string | Dynamic<String | string>,
+    itemref: String | string | Dynamic<String | string>,
+    itemscope: String | string | Dynamic<String | string>,
+    itemtype: String | string | Dynamic<String | string>,
+    lang: String | string | Dynamic<String | string>,
+    nonce: String | string | Dynamic<String | string>,
+    part: String | string | Dynamic<String | string>,
+    popover: String | string | Dynamic<String | string>,
+    role: String | string | Dynamic<String | string>,
+    slot: String | string | Dynamic<String | string>,
+    spellcheck: String | string | Dynamic<String | string>,
+    tabindex: String | string | Dynamic<String | string>,
+    title: String | string | Dynamic<String | string>,
+    translate: String | string | Dynamic<String | string>,
 }
 
 export type InputAttributes = Partial<{
 
-    accept: string | Dynamic<string>,
-    alt: string | Dynamic<string>,
-    autocomplete: string | Dynamic<string>,
-    autofocus: string | Dynamic<string>,
-    checked: string | Dynamic<string>,
-    dirname: string | Dynamic<string>,
-    form: string | Dynamic<string>,
-    formtarget: string | Dynamic<string>,
-    list: string | Dynamic<string>,
-    max: string | Dynamic<string>,
-    maxlength: string | Dynamic<string>,
-    min: string | Dynamic<string>,
-    minlength: string | Dynamic<string>,
-    multiple: string | Dynamic<string>,
-    name: string | Dynamic<string>,
-    pattern: string | Dynamic<string>,
-    placeholder: string | Dynamic<string>,
-    readonly: string | Dynamic<string>,
-    required: string | Dynamic<string>,
-    size: string | Dynamic<string>,
-    step: string | Dynamic<string>,
-    type: string | Dynamic<string>,
-    value: string | Dynamic<string>
+    accept: String | string | Dynamic<String | string>,
+    alt: String | string | Dynamic<String | string>,
+    autocomplete: String | string | Dynamic<String | string>,
+    autofocus: String | string | Dynamic<String | string>,
+    checked: String | string | Dynamic<String | string>,
+    dirname: String | string | Dynamic<String | string>,
+    form: String | string | Dynamic<String | string>,
+    formtarget: String | string | Dynamic<String | string>,
+    list: String | string | Dynamic<String | string>,
+    max: String | string | Dynamic<String | string>,
+    maxlength: String | string | Dynamic<String | string>,
+    min: String | string | Dynamic<String | string>,
+    minlength: String | string | Dynamic<String | string>,
+    multiple: String | string | Dynamic<String | string>,
+    name: String | string | Dynamic<String | string>,
+    pattern: String | string | Dynamic<String | string>,
+    placeholder: String | string | Dynamic<String | string>,
+    readonly: String | string | Dynamic<String | string>,
+    required: String | string | Dynamic<String | string>,
+    size: String | string | Dynamic<String | string>,
+    step: String | string | Dynamic<String | string>,
+    type: String | string | Dynamic<String | string>,
+    value: String | string | Dynamic<String | string>
 
 }>
 
 export type LinkAttributes = Partial<{
-    crossorigin: string | Dynamic<string>,
-    href: string | Dynamic<string>,
-    hreflang: string | Dynamic<string>,
-    media: string | Dynamic<string>,
-    referrerpolicy: string | Dynamic<string>,
-    rel: string | Dynamic<string>,
-    sizes: string | Dynamic<string>,
-    title: string | Dynamic<string>,
-    type: string | Dynamic<string>,
+    crossorigin: String | string | Dynamic<String | string>,
+    href: String | string | Dynamic<String | string>,
+    hreflang: String | string | Dynamic<String | string>,
+    media: String | string | Dynamic<String | string>,
+    referrerpolicy: String | string | Dynamic<String | string>,
+    rel: String | string | Dynamic<String | string>,
+    sizes: String | string | Dynamic<String | string>,
+    title: String | string | Dynamic<String | string>,
+    type: String | string | Dynamic<String | string>,
 }>
 
 export type ImageAttributes = Partial<{
 
-    alt: string | Dynamic<string>,
-    crossorigin: string | Dynamic<string>,
-    ismap: string | Dynamic<string>,
-    loading: string | Dynamic<string>,
-    longdesc: string | Dynamic<string>,
-    referrerpolicy: string | Dynamic<string>,
-    src: string | Dynamic<string>,
-    srcset: string | Dynamic<string>,
-    usemap: string | Dynamic<string>
+    alt: String | string | Dynamic<String | string>,
+    crossorigin: String | string | Dynamic<String | string>,
+    ismap: String | string | Dynamic<String | string>,
+    loading: String | string | Dynamic<String | string>,
+    longdesc: String | string | Dynamic<String | string>,
+    referrerpolicy: String | string | Dynamic<String | string>,
+    src: String | string | Dynamic<String | string>,
+    srcset: String | string | Dynamic<String | string>,
+    usemap: String | string | Dynamic<String | string>
 
 }>
 
 export type AudioAttributes = Partial<{
 
-    autoplay: string,
-    controls: string,
-    loop: string,
-    muted: string,
-    preload: string,
-    src: string
+    autoplay: String | string,
+    controls: String | string,
+    loop: String | string,
+    muted: String | string,
+    preload: String | string,
+    src: String | string
 
 }>
 
 export type VideoAttributes = Partial<{
 
-    autoplay: string | Dynamic<string>,
-    controls: string | Dynamic<string>,
-    loop: string | Dynamic<string>,
-    muted: string | Dynamic<string>,
-    poster: string | Dynamic<string>,
-    preload: string | Dynamic<string>,
-    src: string | Dynamic<string>
+    autoplay: String | string | Dynamic<String | string>,
+    controls: String | string | Dynamic<String | string>,
+    loop: String | string | Dynamic<String | string>,
+    muted: String | string | Dynamic<String | string>,
+    poster: String | string | Dynamic<String | string>,
+    preload: String | string | Dynamic<String | string>,
+    src: String | string | Dynamic<String | string>
 
 }>
 
 export type MultiMediaAttributes = Partial<{
 
-    data: string | Dynamic<string>,
-    form: string | Dynamic<string>,
-    type: string | Dynamic<string>,
-    name: string | Dynamic<string>,
-    typemustmatch: string | Dynamic<string>,
-    usemap: string | Dynamic<string>
+    data: String | string | Dynamic<String | string>,
+    form: String | string | Dynamic<String | string>,
+    type: String | string | Dynamic<String | string>,
+    name: String | string | Dynamic<String | string>,
+    typemustmatch: String | string | Dynamic<String | string>,
+    usemap: String | string | Dynamic<String | string>
 
 }>
 
 export type MediaSourceAttributes = Partial<{
 
-    media: string | Dynamic<string>,
-    sizes: string | Dynamic<string>,
-    src: string | Dynamic<string>,
-    srcset: string | Dynamic<string>,
-    type: string | Dynamic<string>
+    media: String | string | Dynamic<String | string>,
+    sizes: String | string | Dynamic<String | string>,
+    src: String | string | Dynamic<String | string>,
+    srcset: String | string | Dynamic<String | string>,
+    type: String | string | Dynamic<String | string>
 
 }>
 
 export type IFrameAttributes = Partial<{
 
-    allow: string | Dynamic<string>,
-    allowfullscreen: string | Dynamic<string>,
-    allowpaymentrequest: string | Dynamic<string>,
-    loading: string | Dynamic<string>,
-    name: string | Dynamic<string>,
-    referrerpolicy: string | Dynamic<string>,
-    sandbox: string | Dynamic<string>,
-    src: string | Dynamic<string>,
-    srcdoc: string | Dynamic<string>
+    allow: String | string | Dynamic<String | string>,
+    allowfullscreen: String | string | Dynamic<String | string>,
+    allowpaymentrequest: String | string | Dynamic<String | string>,
+    loading: String | string | Dynamic<String | string>,
+    name: String | string | Dynamic<String | string>,
+    referrerpolicy: String | string | Dynamic<String | string>,
+    sandbox: String | string | Dynamic<String | string>,
+    src: String | string | Dynamic<String | string>,
+    srcdoc: String | string | Dynamic<String | string>
 
 }>
 
 export type DropdownAttributes = Partial<{
 
-    autofocus: string | Dynamic<string>,
-    disabled: string | Dynamic<string>,
-    form: string | Dynamic<string>,
-    multiple: string | Dynamic<string>,
-    name: string | Dynamic<string>,
-    required: string | Dynamic<string>,
-    size: string | Dynamic<string>
+    autofocus: String | string | Dynamic<String | string>,
+    disabled: String | string | Dynamic<String | string>,
+    form: String | string | Dynamic<String | string>,
+    multiple: String | string | Dynamic<String | string>,
+    name: String | string | Dynamic<String | string>,
+    required: String | string | Dynamic<String | string>,
+    size: String | string | Dynamic<String | string>
 
 }>
 
 export type DropdownItemAttributes = Partial<{
 
-    disabled: string | Dynamic<string>,
-    label: string | Dynamic<string>,
-    selected: string | Dynamic<string>,
-    value: string | Dynamic<string>
+    disabled: String | string | Dynamic<String | string>,
+    label: String | string | Dynamic<String | string>,
+    selected: String | string | Dynamic<String | string>,
+    value: String | string | Dynamic<String | string>
 
 }>
 

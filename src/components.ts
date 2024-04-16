@@ -1,4 +1,4 @@
-import { Dynamic, DynamicLoop, OmegaComponent, OmegaProperty, State } from "./index"
+import { Dynamic, OmegaComponent, OmegaProperty, State } from "./index"
 import { DriverUtility } from "./driver"
 import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, ImageAttributes, InputAttributes, LinkAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
 
@@ -10,28 +10,33 @@ export function $region(callback: () => OmegaComponent, ...states: State<any>[])
 
 }
 
-export function $property(callback: () => string, ...states: State<any>[]) {
+export function $property<T>(callback: () => T, ...states: State<any>[]) {
 
-    return new Dynamic<String>(callback, ...states)
+    return new Dynamic<T>(callback, ...states)
 
 }
 
-export function $loop(callback: () => OmegaComponent[], ...states: State<any>[]) {
+//to tell the driver to not use those properties.
+export const Property = {
 
-    return new DynamicLoop<OmegaComponent>(callback, ...states)
+    Empty() {
+        return "__omega__ignore__property__"
+    },
 
+    EmptyStyle() {
+        return {}
+    }
+
+}
+
+export type StyleProperty =  {
+    [P in keyof Partial<CSSStyleDeclaration>]: String | string
 }
 
 export const Layout = {
 
-    Fragment: (properties: defaultPropertyType) => {
-
-        return new OmegaComponent(NativeComponentIndex.__fragment__, DriverUtility.createFragment(properties))
-
-    },
-
     Column: (properties: defaultPropertyType) => {
-        
+
         return new OmegaComponent(NativeComponentIndex.ColumnView, properties)
 
     },
@@ -51,6 +56,12 @@ export const Layout = {
     View: (properties: defaultPropertyType) => {
 
         return new OmegaComponent(NativeComponentIndex.View, properties)
+
+    },
+
+    Empty: () => {
+
+        return new OmegaComponent(NativeComponentIndex.__empty__, {})
 
     }
 
@@ -109,7 +120,7 @@ export const Input = {
     Checkbox: (properties: defaultPropertyType & InputAttributes) => {
 
         return new OmegaComponent(NativeComponentIndex.Checkbox, properties)
-        
+
     },
 
     Dropdown: (properties: defaultPropertyType & DropdownAttributes) => {
@@ -152,7 +163,7 @@ export const Input = {
 
 export const Content = {
 
-    Text: (text: string) => {
+    Text: (text: String | string) => {
 
         return new OmegaComponent(NativeComponentIndex.__text__, DriverUtility.createText(text, {}))
 
@@ -179,13 +190,13 @@ export const Content = {
     HorizontalRule: (properties: defaultPropertyType) => {
 
         return new OmegaComponent(NativeComponentIndex.HorizontalRule, properties)
-        
+
     }
 
 }
 
 export const Media = {
-    
+
     Audio: (properties: defaultPropertyType & AudioAttributes) => {
 
         return new OmegaComponent(NativeComponentIndex.Audio, properties)
