@@ -18,6 +18,7 @@ export type OmegaProperty = {
         [P in keyof Partial<CSSStyleDeclaration>]: String | string
     }>,
     key?: number, //must be unique for tree-diffs.
+    reference?: State<HTMLElement>
 
 } & Partial<GlobalAttributes>
 

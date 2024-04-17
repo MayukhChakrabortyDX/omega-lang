@@ -50,6 +50,9 @@ export enum NativeComponentIndex {
         MultiMedia,
         MediaSource
 
+        //add new components here, so that the driver does not break.
+        //It will be a nightmare to fix it.
+
 }
 
 //for everyone
