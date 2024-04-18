@@ -1,6 +1,6 @@
 import { Dynamic, OmegaComponent, OmegaProperty, State } from "./index"
 import { DriverUtility } from "./driver"
-import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, ImageAttributes, InputAttributes, LinkAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
+import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, IFrameAttributes, ImageAttributes, InputAttributes, LinkAttributes, MediaSourceAttributes, MultiMediaAttributes, NativeComponentIndex, OmegaEvents, VideoAttributes } from "./type"
 
 type defaultPropertyType = OmegaProperty & OmegaEvents<Event>
 
@@ -35,25 +35,25 @@ export type StyleProperty =  {
 
 export const Layout = {
 
-    Column: (properties: defaultPropertyType) => {
+    Column: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.ColumnView, properties)
 
     },
 
-    Row: (properties: defaultPropertyType) => {
+    Row: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.RowView, properties)
 
     },
 
-    Grid: (properties: defaultPropertyType) => {
+    Grid: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.GridView, properties)
 
     },
 
-    View: (properties: defaultPropertyType) => {
+    View: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.View, properties)
 
@@ -69,91 +69,91 @@ export const Layout = {
 
 export const Input = {
 
-    Link: (properties: defaultPropertyType & LinkAttributes) => {
+    Link: (properties: defaultPropertyType & LinkAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Link, properties)
 
     },
 
-    Button: (prpoerties: defaultPropertyType & InputAttributes) => {
+    Button: (prpoerties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Button, prpoerties)
 
     },
 
-    Text: (properties: defaultPropertyType & InputAttributes) => {
+    Text: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.TextInput, properties)
 
     },
 
-    TextArea: (properties: defaultPropertyType & InputAttributes) => {
+    TextArea: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.TextAreaInput, properties)
 
     },
 
-    Numeric: (properties: defaultPropertyType & InputAttributes) => {
+    Numeric: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.NumberInput, properties)
 
     },
 
-    Email: (properties: defaultPropertyType & InputAttributes) => {
+    Email: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.EmailInput, properties)
 
     },
 
-    Password: (prorperties: defaultPropertyType & InputAttributes) => {
+    Password: (prorperties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.PasswordInput, prorperties)
 
     },
 
-    ExternalFile: (properties: defaultPropertyType & InputAttributes) => {
+    ExternalFile: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.FileInput, properties)
 
     },
 
-    Checkbox: (properties: defaultPropertyType & InputAttributes) => {
+    Checkbox: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Checkbox, properties)
 
     },
 
-    Dropdown: (properties: defaultPropertyType & DropdownAttributes) => {
+    Dropdown: (properties: defaultPropertyType & DropdownAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Dropdown, properties)
 
     },
 
-    DropdownItem: (properties: defaultPropertyType & DropdownItemAttributes) => {
+    DropdownItem: (properties: defaultPropertyType & DropdownItemAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.DropdownItem, properties)
 
     },
 
-    Date: (properties: defaultPropertyType & InputAttributes) => {
+    Date: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Date, properties)
 
     },
 
-    Time: (properties: defaultPropertyType & InputAttributes) => {
+    Time: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Time, properties)
 
     },
 
-    DateTime: (properties: defaultPropertyType & InputAttributes) => {
+    DateTime: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.DateTime, properties)
 
     },
 
-    Color: (properties: defaultPropertyType & InputAttributes) => {
+    Color: (properties: defaultPropertyType & InputAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Color, properties)
 
@@ -163,37 +163,37 @@ export const Input = {
 
 export const Content = {
 
-    Icon(properties: defaultPropertyType) {
+    Icon(properties: defaultPropertyType = {}) {
 
         return new OmegaComponent(NativeComponentIndex.Icon, properties)
 
     },
 
-    Text: (text: String | string) => {
+    Text: (text: String | string = "") => {
 
         return new OmegaComponent(NativeComponentIndex.__text__, DriverUtility.createText(text, {}))
 
     },
 
-    TextBox: (properties: defaultPropertyType) => {
+    TextBox: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.TextBox, properties)
 
     },
 
-    Label: (properties: defaultPropertyType) => {
+    Label: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Label, properties)
 
     },
 
-    LineBreak: (properties: defaultPropertyType) => {
+    LineBreak: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.BreakLine, properties)
 
     },
 
-    HorizontalRule: (properties: defaultPropertyType) => {
+    HorizontalRule: (properties: defaultPropertyType = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.HorizontalRule, properties)
 
@@ -203,37 +203,37 @@ export const Content = {
 
 export const Media = {
 
-    Audio: (properties: defaultPropertyType & AudioAttributes) => {
+    Audio: (properties: defaultPropertyType & AudioAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Audio, properties)
 
     },
 
-    Video: (properties: defaultPropertyType & VideoAttributes) => {
+    Video: (properties: defaultPropertyType & VideoAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Video, properties)
 
     },
 
-    Image: (properties: defaultPropertyType & ImageAttributes) => {
+    Image: (properties: defaultPropertyType & ImageAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.Image, properties)
 
     },
 
-    IFrame: (properties: defaultPropertyType & ImageAttributes) => {
+    WebView: (properties: defaultPropertyType & IFrameAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.IFrame, properties)
 
     },
 
-    MultiMedia: (properties: defaultPropertyType & ImageAttributes) => {
+    MultiMedia: (properties: defaultPropertyType & MultiMediaAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.MultiMedia, properties)
 
     },
 
-    MediaSource: (properties: defaultPropertyType & ImageAttributes) => {
+    MediaSource: (properties: defaultPropertyType & MediaSourceAttributes = {}) => {
 
         return new OmegaComponent(NativeComponentIndex.MediaSource, properties)
 
