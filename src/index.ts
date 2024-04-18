@@ -18,6 +18,8 @@ export type OmegaProperty = {
         [P in keyof Partial<CSSStyleDeclaration>]: String | string
     }>,
     reference?: State<any>,
+    create?: () => any,
+    destroy?: () => any
 
 } & Partial<GlobalAttributes>
 
