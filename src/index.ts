@@ -75,7 +75,12 @@ export class State<T> {
 
     }
 
-    onchange(fx: (prev: T, newv: T) => any): number {
+    /**
+     * Listens for changes, and calls whenever a change occurs.
+     * @param fx 
+     * @returns 
+     */
+    listen(fx: (prev: T, newv: T) => any): number {
 
         this.updateList.push(fx)
         return this.updateList.length - 1

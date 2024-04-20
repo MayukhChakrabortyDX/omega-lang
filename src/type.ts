@@ -118,6 +118,7 @@ export type InputAttributes = Partial<{
 }>
 
 export type LinkAttributes = Partial<{
+
     crossorigin: String | string | Dynamic<String | string>,
     href: String | string | Dynamic<String | string>,
     hreflang: String | string | Dynamic<String | string>,
@@ -127,6 +128,7 @@ export type LinkAttributes = Partial<{
     sizes: String | string | Dynamic<String | string>,
     title: String | string | Dynamic<String | string>,
     type: String | string | Dynamic<String | string>,
+    
 }>
 
 export type ImageAttributes = Partial<{
