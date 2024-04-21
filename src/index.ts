@@ -18,8 +18,6 @@ export type OmegaProperty = {
         [P in keyof Partial<CSSStyleDeclaration>]: String | string
     }>,
     reference?: State<any>,
-    create?: () => any,
-    destroy?: () => any
 
 } & Partial<GlobalAttributes>
 
@@ -32,7 +30,7 @@ export class OmegaComponent {
      * The constructor will accept all sorts of properties, but it is the responsibility of the
      * components to actually implement certail attributes to only certain elements
      */
-    constructor(name: NativeComponentIndex, properties: OmegaProperty) {
+    constructor(name: NativeComponentIndex, properties: OmegaProperty = {}) {
 
         this.name = name
         this.properties = properties
@@ -89,19 +87,25 @@ export class State<T> {
 
 }
 
+/**
+ * Scopes are used to track any function outside the scope of the
+ * region dynamics. Useful for optimized checks.
+ */
 export class Dynamic<T> extends OmegaComponent {
 
     dynamic: {
-        callback: () => T,
-        states: State<any>[]
+        callback: (scope: { [key: string]: () => any }) => T,
+        states: State<any>[],
+        scope: { [key: string]: () => any }
     }
 
-    constructor(callback: () => T, ...states: State<any>[]) {
+    constructor(callback: (scope: { [key: string]: () => any }) => T, states: State<any>[], scope: { [key: string]: () => any }) {
 
         super(NativeComponentIndex.__dynamic__, {})
         this.dynamic = {
             callback,
-            states
+            states,
+            scope
         }
 
     }

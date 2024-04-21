@@ -4,15 +4,19 @@ import { AudioAttributes, DropdownAttributes, DropdownItemAttributes, IFrameAttr
 
 type defaultPropertyType = OmegaProperty & OmegaEvents<Event>
 
-export function $region(callback: () => OmegaComponent, ...states: State<any>[]) {
+export function $region({ scope = {}, builder, states }: {
+    scope?: { [key: string]: () => any }, builder: (scope: { [key: string]: () => any }) => OmegaComponent, states: State<any>[]
+}) {
 
-    return new Dynamic<OmegaComponent>(callback, ...states)
+    return new Dynamic<OmegaComponent>(builder, states, scope)
 
 }
 
-export function $property<T>(callback: () => T, ...states: State<any>[]) {
+export function $property<T>({ scope = {}, builder, states }: {
+    builder: (scope: { [key: string]: () => any }) => T, states: State<any>[], scope?: { [key: string]: () => any }
+}) {
 
-    return new Dynamic<T>(callback, ...states)
+    return new Dynamic<T>(builder, states, scope)
 
 }
 
