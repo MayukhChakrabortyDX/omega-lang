@@ -1,6 +1,6 @@
 {
   "name": "@indivice/omega-lang",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "The Language of OmegaUI",
   "main": "index.js",
   "scripts": {

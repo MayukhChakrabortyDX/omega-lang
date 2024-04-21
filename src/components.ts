@@ -20,6 +20,18 @@ export function $property<T>({ scope = {}, builder, states }: {
 
 }
 
+export async function $effect({ callback, dependencies = [] }: {
+
+    callback: () => any,
+    dependencies: State<any>[]
+
+}) {
+
+    callback()
+    dependencies.forEach(deps => deps.listen(() => callback()))
+
+}
+
 //to tell the driver to not use those properties.
 export const Property = {
 
